@@ -14,6 +14,7 @@ const sequelize = new Sequelize(
         rejectUnauthorized: false, // This is required for Neon DB
       },
     },
+    dialectModule: require("pg"),
     dialect: config.dialect,
   }
 );
