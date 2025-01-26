@@ -8,6 +8,7 @@ const sequelize = new Sequelize(
   {
     host: config.host,
     port: config.port,
+    dialectModule: require("pg"),
     dialect: config.dialect,
   }
 );
