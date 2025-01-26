@@ -218,7 +218,7 @@ const triggerSelfDestruct = async (req, res, next) => {
     // Fetch the gadget from the database
     const gadget = await Gadget.findByPk(id);
     if (!gadget) {
-      throw createError(404, "Gadget not found");
+      throw createHttpError(404, "Gadget not found");
     }
 
     // Simulate a previously generated confirmation code (in a real-world scenario,
@@ -228,7 +228,7 @@ const triggerSelfDestruct = async (req, res, next) => {
 
     // If the provided confirmation code doesn't match the generated one, throw an error
     if (code !== storedConfirmationCode) {
-      throw createError(400, "Invalid confirmation code");
+      throw createHttpError(400, "Invalid confirmation code");
     }
 
     // Mark the gadget as destroyed (or decommissioned)
