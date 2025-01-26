@@ -45,6 +45,8 @@ router.route("/").get(validateStatusQuery, verifyToken, getAllGadgets);
 router.route("/").post(validateCreateGadget, verifyToken, createGadget);
 router.route("/:id").patch(validateUpdateGadget, verifyToken, updateGadget);
 router.route("/:id").delete(verifyToken, deleteGadget);
-router.route("/:id").delete(validateTriggerSelfDestruct, triggerSelfDestruct);
+router
+  .route("/:id/self-destruct")
+  .delete(validateTriggerSelfDestruct, triggerSelfDestruct);
 
 module.exports = router;
