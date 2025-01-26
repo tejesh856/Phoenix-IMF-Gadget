@@ -18,4 +18,14 @@ const sequelize = new Sequelize(
     dialect: config.dialect,
   }
 );
-module.exports = sequelize;
+// Function to test database connection
+const connectDatabase = async () => {
+  try {
+    await sequelize.authenticate();
+    console.log("✅ Database connection successful.");
+  } catch (error) {
+    console.error("❌ Database connection failed:", error.message);
+    throw error;
+  }
+};
+module.exports = { sequelize, connectDatabase };
