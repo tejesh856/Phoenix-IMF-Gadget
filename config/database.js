@@ -8,13 +8,15 @@ const sequelize = new Sequelize(
   {
     host: config.host,
     port: config.port,
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false, // This is required for Neon DB
+    ...(env === "production" && {
+      dialectOptions: {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false,
+        },
       },
-    },
-    //dialectModule: require("pg"),
+    }),
+    dialectModule: require("pg"),
     dialect: config.dialect,
   }
 );
