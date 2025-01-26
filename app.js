@@ -13,7 +13,7 @@ connectDatabase()
   .then(() => {
     // all routes
     app.get("/", (req, res) => {
-      res.json({ success: "true", message: "Hello World" });
+      res.send("🚀 Phoenix API Challenge is Live!");
     });
 
     //auth routes
