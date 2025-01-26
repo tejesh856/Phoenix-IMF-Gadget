@@ -47,6 +47,6 @@ router.route("/:id").patch(validateUpdateGadget, verifyToken, updateGadget);
 router.route("/:id").delete(verifyToken, deleteGadget);
 router
   .route("/:id/self-destruct")
-  .delete(validateTriggerSelfDestruct, triggerSelfDestruct);
+  .post(validateTriggerSelfDestruct, triggerSelfDestruct);
 
 module.exports = router;
