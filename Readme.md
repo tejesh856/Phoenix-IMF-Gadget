@@ -56,6 +56,8 @@ DB_PASSWORD
 DB_DATABASE=imf_gadgets
 DB_HOST
 DB_PORT
+ACCESS_SECRET
+ACCESS_EXPIRES_IN=1d
 ```
 
 <p>6. Create a database imf_gadgets</p>
